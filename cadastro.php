@@ -13,6 +13,8 @@
         $endereco = $_POST["endereco"];
 
         $result = mysqli_query($conexao, "INSERT INTO usuarios (nome, email, senha, telefone, sexo, data_nasc, cidade, estado, endereco) VALUES ('$nome', '$email', '$senha', '$telefone', '$sexo', '$data_nasc', '$cidade', '$estado', '$endereco')");
+
+        header('Location: login.php');
     }
 ?><!DOCTYPE html>
 <html lang="pt-BR">
