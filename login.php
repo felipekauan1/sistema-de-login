@@ -14,7 +14,7 @@
             <br>
             <input class="inputbox" type="password" name="senha" id="senha" placeholder="Senha" required>
             <br>
-            <input class="button" type="submit" value="Entrar">
+            <input class="button" type="submit" name="submit" value="Entrar">
         </form>
     </div>
 </body>
