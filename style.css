@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0f0c25;
+    color: #fff;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.login .inputbox {
+    width: 350px;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background-color: #1e1c2e;
+    color: #fff;
+}
+
+.login div.inputbox {
+    text-align: start;
+}
+
+.button {
+    background-color: dodgerblue;
+    margin-top: 0.8rem;
+    width: 120px;
+    height: 40px;
+    border-radius: 15px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: deepskyblue;
+}
+
+#submit {
+    background-color: dodgerblue;
+    margin-top: 0.8rem;
+    width: 200px;
+    height: 48px;
+    border-radius: 15px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#submit:hover {
+    background-color: deepskyblue;
+}
+
+.login .inputbox::placeholder {
+    color: #757575;
+}
+
+.login .inputbox:focus {
+    color: #fff;
+}
