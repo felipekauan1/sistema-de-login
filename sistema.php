@@ -68,7 +68,7 @@
     <header>
         <h2><a href="<?= $_SERVER["PHP_SELF"] ?>">Felipe</a></h2>
         <div>
-            <a class="btn" href="login.php">Sair</a>
+            <a class="btn" href="sair.php">Sair</a>
         </div>
     </header>
 
