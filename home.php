@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Login</title>
+    <title>Sistema de Login | FK</title>
     <style>
         * {
             margin: 0;
@@ -78,7 +78,7 @@
 </head>
 <body>
     <header>
-        <h2><a href="<?= $_SERVER["PHP_SELF"] ?>">Felipe</a></h2>
+        <h2><a href="<?= $_SERVER["PHP_SELF"] ?>">Felipe | FK</a></h2>
         <div>
             <a class="btn" href="login.php">Login</a>
             <a class="btn" href="cadastro.php">Cadastro</a>
