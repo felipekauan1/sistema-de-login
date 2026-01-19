@@ -51,7 +51,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            min-height: 500px;
+            min-height: 70dvh;
         }
 
         main .box-btn {

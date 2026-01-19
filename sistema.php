@@ -11,11 +11,14 @@
     
     $logado = $_SESSION["email"];
 
-    $sql = "SELECT * FROM usuarios ORDER BY id DESC";
+    if (!empty($_GET['pesquisa'])) {
+        $data = $_GET['pesquisa'];
+        $sql = "SELECT * FROM usuarios WHERE id LIKE '%$data%' or  nome LIKE '%$data%' or  email LIKE '%$data%' ORDER BY id DESC";
+    } else {
+        $sql = "SELECT * FROM usuarios ORDER BY id DESC";
+    }
 
     $result = $conexao->query($sql);
-
-    //print_r($result);
 
 ?><!DOCTYPE html>
 <html lang="pt-BR">
@@ -38,6 +41,16 @@
             color: #fff;
         }
 
+        header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding: 1rem;
+            min-height: 6rem;
+        }
+
         a {
             text-decoration: none;
             color: #fff;  
@@ -54,26 +67,56 @@
             background-color: red;
         }
 
-        header {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            padding: 1rem;
-            min-height: 6rem;
-        }
-
         main {
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 500px;
-            gap: 2.5rem;
+            gap: 3rem;
         }
 
         main h1 {
             margin-top: 3rem;
+        }
+
+        #pesquisa {
+            width: 350px;
+            padding: 15px;
+            border-radius: 15px;
+            border: none;
+            outline: none;
+            font-size: 18px;
+            background-color: #1e1c2e;
+        }
+
+        .pesquisabox {
+            display: flex;
+            align-items: center;
+            gap: .2rem;
+        }
+
+        #pesquisa {
+            text-align: start;
+        }
+
+        #pesquisa::placeholder {
+            color: #757575;
+        }
+
+        #pesquisa:focus {
+            color: #fff;
+        }
+
+        .btn-pesquisa {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: dodgerblue;
+            padding: 10px 12px;
+            border-radius: 15px;
+            border: 2px solid #000;
+            text-decoration: none;
+            cursor: pointer;
         }
 
         .tabela {
@@ -123,6 +166,17 @@
 
     <main>
         <h1>Bem-vindo, <?= $logado ?>!</h1>
+
+        <!-- Caixa de pesquisa -->
+        <form class="pesquisabox" action="<?= $_SERVER["PHP_SELF"] ?>">
+            <input type="search" name="pesquisa" id="pesquisa" placeholder="Pesquisar">
+            <button class="btn-pesquisa" onclick="searchData()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#000" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg>
+            </button>
+        </form>
+
         <table class="tabela">
             <thead>
                 <tr>
@@ -173,4 +227,11 @@
         </table>
     </main>
 </body>
+<script>
+    var search = document.getElementById('pesquisar');
+    function searchData()
+    {
+        window.location = 'sistema.php?search='+search.value;
+    }
+</script>
 </html>
